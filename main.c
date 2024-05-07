@@ -20,5 +20,7 @@ int main(int arcg, char *argv[])
     afisare(fisier_out, head);
     fclose(fisier_in);
     
+    eliberareLista(head);
+    
     return 0;
 }
