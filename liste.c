@@ -1,5 +1,4 @@
 #include "main.h"
-#include "functii.h"
 
 void addAtBeginning(Node **head, Echipa e){
     Node* newNode = (Node*)malloc(sizeof(Node));

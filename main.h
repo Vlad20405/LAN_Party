@@ -13,8 +13,7 @@ typedef struct Player Player;
 struct Echipa{
     int Numar_persoane;
     char* Nume_echipa;
-    Player* jucatori;
-    
+    Player* jucatori; 
 };
 typedef struct Echipa Echipa;
 
@@ -24,6 +23,7 @@ struct Elem{
 };
 typedef struct Elem Node;
 
+void eroare_la_deschidere();
 Node* citireDateEchipe(FILE *fisier_in, int *nr_echipe);
 void addAtBeginning(Node **head, Echipa e);
 void afisare(FILE* fisier_in, Node *head);

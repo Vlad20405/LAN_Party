@@ -2,6 +2,16 @@
 
 #define maxCaractere 50
 
+void eroare_la_deschidere(){
+    puts("Fisierul nu poate fi deschis!\n");
+    exit(1);
+}
+
+void eroare_la_alocare(){
+    puts("Nu s-a putut aloca memorie!\n");
+    exit(1);
+}
+
 Node *citireDateEchipe(FILE *fisier_in, int *nr_echipe){
     Node *head = NULL;
     int nr_coechipieri;
@@ -20,8 +30,13 @@ Node *citireDateEchipe(FILE *fisier_in, int *nr_echipe){
         e.Numar_persoane = nr_coechipieri;
 
         e.jucatori = (Player*)malloc(nr_coechipieri * sizeof(Player));
+        if(e.jucatori == NULL)
+            eroare_la_alocare();
 
         e.Nume_echipa = (char*)malloc((strlen(line)+1) * sizeof(char));
+        if(e.Nume_echipa == NULL)
+            eroare_la_alocare();
+
         strcpy(e.Nume_echipa, line);
 
         for(int j=0; j < nr_coechipieri; j++){
@@ -32,10 +47,16 @@ Node *citireDateEchipe(FILE *fisier_in, int *nr_echipe){
             while(q != NULL){
                 if(e.jucatori[j].firstName == NULL){
                     e.jucatori[j].firstName = (char*)malloc((strlen(line)+1) * sizeof(char));
+                    if(e.jucatori[j].firstName == NULL)
+                        eroare_la_alocare();
+
                     strcpy(e.jucatori[j].firstName, q);
                 }
                 else if(e.jucatori[j].secondName == NULL){
                     e.jucatori[j].secondName = (char*)malloc((strlen(line)+1) * sizeof(char));
+                    if(e.jucatori[j].secondName == NULL)
+                        eroare_la_alocare();
+                        
                     strcpy(e.jucatori[j].secondName, q);
                 }
                 else{
