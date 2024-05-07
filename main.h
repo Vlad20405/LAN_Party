@@ -23,8 +23,8 @@ struct Elem{
 };
 typedef struct Elem Node;
 
-void eroare_la_deschidere();
 Node* citireDateEchipe(FILE *fisier_in, int *nr_echipe);
+void eroare_la_deschidere();
 void addAtBeginning(Node **head, Echipa e);
-void afisare(FILE* fisier_in, Node *head);
+void Cerinta1(FILE* fisier_in, Node *head);
 void eliberareLista(Node *head);

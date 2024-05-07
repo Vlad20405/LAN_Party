@@ -56,7 +56,7 @@ Node *citireDateEchipe(FILE *fisier_in, int *nr_echipe){
                     e.jucatori[j].secondName = (char*)malloc((strlen(line)+1) * sizeof(char));
                     if(e.jucatori[j].secondName == NULL)
                         eroare_la_alocare();
-                        
+
                     strcpy(e.jucatori[j].secondName, q);
                 }
                 else{
