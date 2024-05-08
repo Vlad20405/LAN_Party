@@ -1,7 +1,6 @@
 #include "main.h"
 
 #define maxCaractere 50
-#define int_MAX 99999
 
 void eroare_la_deschidere(){
     puts("Fisierul nu poate fi deschis!\n");
@@ -17,9 +16,10 @@ Node *citireDateEchipe(FILE *fisier_in, int *nr_echipe){
     Node *head = NULL;
     int nr_coechipieri;
     char line[maxCaractere], *q;
-
+    
     for (int i = 0; i < *nr_echipe; i++) {
         Echipa e;
+        float punctajTotal = 0;
 
         fscanf(fisier_in, "%d", &nr_coechipieri);
         fgetc(fisier_in);
@@ -61,10 +61,12 @@ Node *citireDateEchipe(FILE *fisier_in, int *nr_echipe){
                 }
                 else{
                     e.jucatori[j].points = atoi(q);
+                    punctajTotal += e.jucatori[j].points; 
                 }
                 q = strtok(NULL, " ");
             }
         }
+        e.punctajTotal = punctajTotal;
         addAtBeginning(&head, e);
     }
     return head;
@@ -80,18 +82,12 @@ int numarEchipeMultipluDe_2(int nr_echipe){
 
 Node* echipaPunctajMinim(Node* head) {
     Node* minNode = NULL;
-    int minPunctaj = int_MAX;
+    float minPunctaj = INT_MAX; 
 
     while (head != NULL) {
-        if (head->val.jucatori != NULL) {
-            int punctajEchipa = 0;
-            for (int i = 0; i < head->val.Numar_persoane; i++) {
-                punctajEchipa += head->val.jucatori[i].points;
-            }
-            if (punctajEchipa < minPunctaj) {
-                minPunctaj = punctajEchipa;
-                minNode = head;
-            }
+        if (head->val.punctajTotal < minPunctaj) { 
+            minPunctaj = head->val.punctajTotal; 
+            minNode = head;
         }
         head = head->next;
     }

@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <limits.h>
 
 struct Player
 {
@@ -14,6 +15,7 @@ struct Echipa{
     int Numar_persoane;
     char* Nume_echipa;
     Player* jucatori; 
+    float punctajTotal;
 };
 typedef struct Echipa Echipa;
 
