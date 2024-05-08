@@ -24,7 +24,11 @@ struct Elem{
 typedef struct Elem Node;
 
 Node* citireDateEchipe(FILE *fisier_in, int *nr_echipe);
+Node* echipaPunctajMinim(Node* head);
+int numarEchipeMultipluDe_2(int nr_echipe);
 void eroare_la_deschidere();
 void addAtBeginning(Node **head, Echipa e);
-void Cerinta1(FILE* fisier_in, Node *head);
+void Cerinta_1(FILE* fisier_in, Node *head);
+void Cerinta_2(FILE* fisier_in, Node *head, int *nr_echipe);
 void eliberareLista(Node *head);
+void eliminaEchipaPunctajMinim(Node** head);

@@ -1,6 +1,7 @@
 #include "main.h"
 
 #define maxCaractere 50
+#define int_MAX 99999
 
 void eroare_la_deschidere(){
     puts("Fisierul nu poate fi deschis!\n");
@@ -16,8 +17,6 @@ Node *citireDateEchipe(FILE *fisier_in, int *nr_echipe){
     Node *head = NULL;
     int nr_coechipieri;
     char line[maxCaractere], *q;
-
-    fscanf(fisier_in, "%d", nr_echipe);
 
     for (int i = 0; i < *nr_echipe; i++) {
         Echipa e;
@@ -38,6 +37,7 @@ Node *citireDateEchipe(FILE *fisier_in, int *nr_echipe){
             eroare_la_alocare();
 
         strcpy(e.Nume_echipa, line);
+        e.Nume_echipa[strlen(e.Nume_echipa)-1]='\0';
 
         for(int j=0; j < nr_coechipieri; j++){
             fgets(line, sizeof(line), fisier_in);
@@ -69,3 +69,60 @@ Node *citireDateEchipe(FILE *fisier_in, int *nr_echipe){
     }
     return head;
 }
+
+int numarEchipeMultipluDe_2(int nr_echipe){
+    int nr_echipe_dupa_eliminare = 1;
+    while(nr_echipe_dupa_eliminare * 2 <= nr_echipe){
+        nr_echipe_dupa_eliminare *= 2;
+    }
+    return nr_echipe_dupa_eliminare;
+}
+
+Node* echipaPunctajMinim(Node* head) {
+    Node* minNode = NULL;
+    int minPunctaj = int_MAX;
+
+    while (head != NULL) {
+        if (head->val.jucatori != NULL) {
+            int punctajEchipa = 0;
+            for (int i = 0; i < head->val.Numar_persoane; i++) {
+                punctajEchipa += head->val.jucatori[i].points;
+            }
+            if (punctajEchipa < minPunctaj) {
+                minPunctaj = punctajEchipa;
+                minNode = head;
+            }
+        }
+        head = head->next;
+    }
+    return minNode;
+}
+
+void eliminaEchipaPunctajMinim(Node** head) {
+    if (*head == NULL) {
+        return;
+    }
+
+    Node* minNode = echipaPunctajMinim(*head);
+
+    if (minNode != NULL) {
+        if (*head == minNode) {
+            *head = (*head)->next;
+        } else {
+            Node* prev = *head;
+            while (prev->next != minNode) {
+                prev = prev->next;
+            }
+            prev->next = minNode->next;
+        }
+
+        free(minNode->val.Nume_echipa);
+        for (int i = 0; i < minNode->val.Numar_persoane; i++) {
+            free(minNode->val.jucatori[i].firstName);
+            free(minNode->val.jucatori[i].secondName);
+        }
+        free(minNode->val.jucatori);
+        free(minNode);
+    }
+}
+
