@@ -66,7 +66,7 @@ Node *citireDateEchipe(FILE *fisier_in, int *nr_echipe){
                 q = strtok(NULL, " ");
             }
         }
-        e.punctajTotal = punctajTotal;
+        e.punctajTotal = punctajTotal/nr_coechipieri;
         addAtBeginning(&head, e);
     }
     return head;

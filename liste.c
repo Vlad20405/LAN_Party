@@ -29,6 +29,23 @@ void Cerinta_2(FILE* fisier_out, Node *head, int *nr_echipe){
     }
     eliberareLista(head);
 }
+/*
+void Cerinta_3(FILE* fisier_out, Node *head, int *nr_echipe){
+
+    int maxEchipeMultipluDe_2 = numarEchipeMultipluDe_2(*nr_echipe);
+    while(*nr_echipe > maxEchipeMultipluDe_2){
+        eliminaEchipaPunctajMinim(&head);
+        (*nr_echipe)--;
+    }
+    //aici vin pasii pesntru cerinta 3
+
+    while(head != NULL){
+		fprintf(fisier_out, "%s\n", head->val.Nume_echipa);
+        head = head->next;
+    }
+    eliberareLista(head);
+}
+*/
 
 void eliberareLista(Node *head) {
     Node *temp;

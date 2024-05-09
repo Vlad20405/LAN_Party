@@ -32,5 +32,6 @@ void eroare_la_deschidere();
 void addAtBeginning(Node **head, Echipa e);
 void Cerinta_1(FILE* fisier_in, Node *head);
 void Cerinta_2(FILE* fisier_in, Node *head, int *nr_echipe);
+//void Cerinta_3(FILE* fisier_in, Node *head, int *nr_echipe);
 void eliberareLista(Node *head);
 void eliminaEchipaPunctajMinim(Node** head);
