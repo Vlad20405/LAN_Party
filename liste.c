@@ -15,12 +15,12 @@ void Cerinta_1(FILE* fisier_out, Node *head){
     eliberareLista(head);
 }
 
-void Cerinta_2(FILE* fisier_out, Node *head, int *nr_echipe){
+void Cerinta_2(FILE* fisier_out, Node *head, int nr_echipe){
+    int maxEchipeMultipluDe_2 = numarEchipeMultipluDe_2(nr_echipe);
 
-    int maxEchipeMultipluDe_2 = numarEchipeMultipluDe_2(*nr_echipe);
-    while(*nr_echipe > maxEchipeMultipluDe_2){
+    while(nr_echipe > maxEchipeMultipluDe_2){
         eliminaEchipaPunctajMinim(&head);
-        (*nr_echipe)--;
+        nr_echipe--;
     }
 
     while(head != NULL){
@@ -29,23 +29,22 @@ void Cerinta_2(FILE* fisier_out, Node *head, int *nr_echipe){
     }
     eliberareLista(head);
 }
-/*
-void Cerinta_3(FILE* fisier_out, Node *head, int *nr_echipe){
 
-    int maxEchipeMultipluDe_2 = numarEchipeMultipluDe_2(*nr_echipe);
-    while(*nr_echipe > maxEchipeMultipluDe_2){
-        eliminaEchipaPunctajMinim(&head);
-        (*nr_echipe)--;
-    }
-    //aici vin pasii pesntru cerinta 3
+void Cerinta_3(FILE* fisier_out, Node *head, int nr_echipe){
+    int contor_runde = 1;
+    Queue *coadaEchipa = createQueue();
+    for(int i = nr_echipe - 1; i >= 0; i--)
+        enQueue(coadaEchipa, head);
 
-    while(head != NULL){
-		fprintf(fisier_out, "%s\n", head->val.Nume_echipa);
-        head = head->next;
-    }
-    eliberareLista(head);
+    fprintf(fisier_out, "\n--- ROUND NO:%d\n",  contor_runde);
+
+    Echipa *primaechipa = deQueue(coadaEchipa), *adouaechipa = deQueue(coadaEchipa);
+    fprintf(fisier_out, "%s   %s",primaechipa->Nume_echipa, adouaechipa->Nume_echipa);
+
+    //functia de meciuri
+    //eliberareLista(head);
 }
-*/
+
 
 void eliberareLista(Node *head) {
     Node *temp;
