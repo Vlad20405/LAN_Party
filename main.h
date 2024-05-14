@@ -42,7 +42,7 @@ void eroare_la_alocare();
 //Cerinte:
 void Cerinta_1(FILE* fisier_in, Node *head);
 void Cerinta_2(FILE* fisier_in, Node **head, int nr_echipe);
-void Cerinta_3(FILE* fisier_in, Node *head);
+void Cerinta_3(FILE* fisier_in, Node *head, Node **echipe_finaliste);
 
 //Functii cerinta 1:
 Node* citireDateEchipe(FILE *fisier_in, int nr_echipe);
@@ -55,7 +55,7 @@ void eliminaEchipaPunctajMinim(Node** head);
 
 //Functii cerinta 3:
 int numarEchipe(Node *head);
-void meciuri(FILE* fisier_out, Node **head, int nr_echipe, int runda);
+void meciuri(FILE* fisier_out, Node **head, Node **echipe_finaliste, int nr_echipe, int runda);
 
 //Functii coada:
 int isEmptyQueue(Queue *q);

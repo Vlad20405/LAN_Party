@@ -29,10 +29,15 @@ int main(int arcg, char *argv[])
 
     if(Cerinta[1] == 1)
         Cerinta_2(fisier_out, &head, nr_echipe);
-    
+
+    Node *echipe_finaliste = NULL;
     if(Cerinta[2] == 1)
-        Cerinta_3(fisier_out, head);
-    
+        Cerinta_3(fisier_out, head, &echipe_finaliste);
+    // Node* current = echipe_finaliste;
+    //     while (current != NULL) {
+    //         printf("%s\n", current->val.Nume_echipa);
+    //         current = current->next;
+    //     }
     fclose(fisier_sarcini);
     fclose(fisier_in);
     fclose(fisier_out);

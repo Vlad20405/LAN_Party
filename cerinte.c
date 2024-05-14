@@ -24,13 +24,13 @@ void Cerinta_2(FILE* fisier_out, Node **head, int nr_echipe){
     }
 }
 
-void Cerinta_3(FILE* fisier_out, Node *head){
+void Cerinta_3(FILE* fisier_out, Node *head, Node **echipe_finaliste){
     int runda = 0;
     int nr_echipe = numarEchipe(head);
 
     while(nr_echipe > 1){
         runda++;
-        meciuri(fisier_out, &head, nr_echipe, runda);
+        meciuri(fisier_out, &head, echipe_finaliste, nr_echipe, runda);
         nr_echipe = nr_echipe / 2;
     }
 }

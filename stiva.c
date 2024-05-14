@@ -16,7 +16,7 @@ void push(Node **top, Echipa echipa){
 
 Echipa pop(Node **top){
     if (isEmptyStack(*top))
-        return;
+        exit(-1);
     
     Node *temp=(*top);  		
     Echipa aux=temp->val;			

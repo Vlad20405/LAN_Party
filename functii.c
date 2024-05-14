@@ -156,7 +156,7 @@ void afisareMeci(FILE* fisier_out, Queue *coadaMeciuri, int runda) {
 }
 
 //Principal:
-void meciuri(FILE* fisier_out, Node **head, int nr_echipe, int runda){
+void meciuri(FILE* fisier_out, Node **head, Node **echipe_finaliste, int nr_echipe, int runda){
     Queue *q = createQueue();
     Node *echipa = *head;
     int i = 0;
@@ -188,11 +188,20 @@ void meciuri(FILE* fisier_out, Node **head, int nr_echipe, int runda){
     deleteStack(&invinsi);
     *head = castigatori;
 
+    if(nr_echipe == 16){
+        Node* castigatori_c = castigatori;
+        while(castigatori_c != NULL){
+            addAtBeginning(echipe_finaliste, castigatori_c->val);
+            castigatori_c = castigatori_c->next;
+        }
+    }
+    
     fprintf(fisier_out, "\nWINNERS OF ROUND NO:%d\n", runda);
     while(castigatori != NULL){
         fprintf(fisier_out, "%-33s -  %.2f\n", castigatori->val.Nume_echipa, castigatori->val.punctajTotal);
         castigatori = castigatori->next;
     }
+    deleteStack(&castigatori);
     free(q);
 }
 
