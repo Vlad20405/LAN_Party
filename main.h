@@ -25,23 +25,47 @@ struct Elem{
 };
 typedef struct Elem Node;
 
+struct Q_Elem{
+	Node *echipa_1, *echipa_2;
+	struct Q_Elem* next;
+};
+typedef struct Q_Elem Meciuri;
+
 struct Queue{
-    Node *front, *rear;
+    Meciuri *front, *rear;
 };
 typedef struct Queue Queue;
 
-Node* citireDateEchipe(FILE *fisier_in, int nr_echipe);
-Node* echipaPunctajMinim(Node* head);
-int numarEchipeMultipluDe_2(int nr_echipe);
 void eroare_la_deschidere();
 void eroare_la_alocare();
-void addAtBeginning(Node **head, Echipa e);
+
+//Cerinte:
 void Cerinta_1(FILE* fisier_in, Node *head);
-void Cerinta_2(FILE* fisier_in, Node *head, int nr_echipe);
-void Cerinta_3(FILE* fisier_in, Node *head, int nr_echipe);
+void Cerinta_2(FILE* fisier_in, Node **head, int nr_echipe);
+void Cerinta_3(FILE* fisier_in, Node *head);
+
+//Functii cerinta 1:
+Node* citireDateEchipe(FILE *fisier_in, int nr_echipe);
+void addAtBeginning(Node **head, Echipa e);
 void eliberareLista(Node *head);
+
+//Functii cerinta 2:
+int numarEchipeMultipluDe_2(int nr_echipe);
 void eliminaEchipaPunctajMinim(Node** head);
 
+//Functii cerinta 3:
+int numarEchipe(Node *head);
+void meciuri(FILE* fisier_out, Node **head, int nr_echipe, int runda);
+
+//Functii coada:
+int isEmptyQueue(Queue *q);
 Queue *createQueue();
-void enQueue(Queue *q, Node *valoare);
-Echipa* deQueue(Queue *q); 
+void enQueue(Queue *q, Node *valoare1, Node *valoare2);
+void enQueueBackward(Queue *q, Node *echipa_1, Node *echipa_2);
+Meciuri* deQueue(Queue *q);
+
+//Functii stiva:
+int isEmptyStack(Node *top);
+void push(Node **top, Echipa echipa);
+Echipa pop(Node **top);
+void deleteStack(Node **top);

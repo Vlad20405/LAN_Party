@@ -26,12 +26,12 @@ int main(int arcg, char *argv[])
 
     if(Cerinta[0] == 1 && Cerinta[1] == 0)
         Cerinta_1(fisier_out, head);
-    
-    if(Cerinta[1] == 1)
-        Cerinta_2(fisier_out, head, nr_echipe);
 
+    if(Cerinta[1] == 1)
+        Cerinta_2(fisier_out, &head, nr_echipe);
+    
     if(Cerinta[2] == 1)
-        Cerinta_3(fisier_out, head, nr_echipe);
+        Cerinta_3(fisier_out, head);
     
     fclose(fisier_sarcini);
     fclose(fisier_in);

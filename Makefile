@@ -1,5 +1,5 @@
 build:
-	gcc main.c functii.c liste.c -o lanParty
+	gcc main.c cerinte.c functii.c liste.c coada.c stiva.c -o lanParty
 
 clean:
 	rm -f lanParty
