@@ -34,3 +34,13 @@ void Cerinta_3(FILE* fisier_out, Node *head, Node **echipe_finaliste){
         nr_echipe = nr_echipe / 2;
     }
 }
+
+void Cerinta_4(FILE* fisier_out, Node *echipe_finaliste, Arbore *BST){
+    fprintf(fisier_out, "\nTOP 8 TEAMS:\n");
+
+    while(echipe_finaliste != NULL){
+        BST = insert(BST, *echipe_finaliste);
+        echipe_finaliste = echipe_finaliste->next;
+    }
+    afisareTop8Echipe(fisier_out, BST);
+}

@@ -195,7 +195,7 @@ void meciuri(FILE* fisier_out, Node **head, Node **echipe_finaliste, int nr_echi
             castigatori_c = castigatori_c->next;
         }
     }
-    
+
     fprintf(fisier_out, "\nWINNERS OF ROUND NO:%d\n", runda);
     while(castigatori != NULL){
         fprintf(fisier_out, "%-33s -  %.2f\n", castigatori->val.Nume_echipa, castigatori->val.punctajTotal);
@@ -205,7 +205,7 @@ void meciuri(FILE* fisier_out, Node **head, Node **echipe_finaliste, int nr_echi
     free(q);
 }
 
-//Secundare (dand pop la castigatori ca sa ii afisez aveam probleme cu parcurgerea castigatorilor dupa prima runda, 
+//Secundar (dand pop la castigatori ca sa ii afisez aveam probleme cu parcurgerea castigatorilor dupa prima runda, 
 // deoarece parcurgeam in continuare dupa lista, iar afisarea era fix invers de cum ar fi trebuit sa fie astfel 
 // am implementat o functie pentru pentru coada care adauga elementele invers):
 
@@ -258,3 +258,11 @@ void meciuri(FILE* fisier_out, Node **head, Node **echipe_finaliste, int nr_echi
 //     }
 //     free(q);
 // }
+
+void afisareTop8Echipe(FILE* fisier_out, Arbore *root){
+    if(root){
+        afisareTop8Echipe(fisier_out, root->right);
+        fprintf(fisier_out, "%-33s -  %.2f\n", root->val.Nume_echipa, root->val.punctajTotal);
+        afisareTop8Echipe(fisier_out, root->left);
+    }
+}

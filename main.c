@@ -38,6 +38,10 @@ int main(int arcg, char *argv[])
     //         printf("%s\n", current->val.Nume_echipa);
     //         current = current->next;
     //     }
+    Arbore *BST = NULL;
+    if(Cerinta[3] == 1)
+        Cerinta_4(fisier_out, echipe_finaliste, BST);
+    
     fclose(fisier_sarcini);
     fclose(fisier_in);
     fclose(fisier_out);
