@@ -37,6 +37,7 @@ struct Queue{
 typedef struct Queue Queue;
 
 struct Arbore{
+    int height;
     Echipa val;
     struct Arbore *left, *right;
 };
@@ -44,27 +45,30 @@ typedef struct Arbore Arbore;
 void eroare_la_deschidere();
 void eroare_la_alocare();
 
-//Cerinte:
-void Cerinta_1(FILE* fisier_out, Node *head);
-void Cerinta_2(FILE* fisier_out, Node **head, int nr_echipe);
-void Cerinta_3(FILE* fisier_out, Node *head, Node **echipe_finaliste);
-void Cerinta_4(FILE* fisier_out, Node *echipe_finaliste, Arbore *BST);
-
 //Functii cerinta 1:
+void Cerinta_1(FILE* fisier_out, Node *head);
 Node* citireDateEchipe(FILE *fisier_in, int nr_echipe);
 void addAtBeginning(Node **head, Echipa e);
 void eliberareLista(Node *head);
 
 //Functii cerinta 2:
+void Cerinta_2(FILE* fisier_out, Node **head, int nr_echipe);
 int numarEchipeMultipluDe_2(int nr_echipe);
 void eliminaEchipaPunctajMinim(Node** head);
 
 //Functii cerinta 3:
+void Cerinta_3(FILE* fisier_out, Node *head, Node **echipe_finaliste);
 int numarEchipe(Node *head);
 void meciuri(FILE* fisier_out, Node **head, Node **echipe_finaliste, int nr_echipe, int runda);
 
 //Functii cerinta 4:
+void Cerinta_4(FILE* fisier_out, Node *echipe_finaliste, Arbore **BST);
 void afisareTop8Echipe(FILE* fisier_out, Arbore *root);
+
+//Functii cerinta 5:
+void Cerinta_5(FILE* fisier_out,Arbore *BST, Arbore **AVL);
+void creareAVL(Arbore *BST, Arbore **AVL);
+void afisareEchipePeNivel(FILE* fisier_out, Arbore* root, int level);
 
 //Functii coada:
 int isEmptyQueue(Queue *q);
@@ -80,5 +84,7 @@ Echipa pop(Node **top);
 void deleteStack(Node **top);
 
 //Functii arbore:
-Arbore* newNode(Node data);
-Arbore* insert(Arbore* node, Node key);
+Arbore* newNode(Echipa data);
+Arbore* insertBST(Arbore* node, Echipa key);
+int nodeHeight(Arbore *root);
+Arbore* insertAVL(Arbore* node, Echipa key);

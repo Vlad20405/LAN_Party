@@ -266,3 +266,21 @@ void afisareTop8Echipe(FILE* fisier_out, Arbore *root){
         afisareTop8Echipe(fisier_out, root->left);
     }
 }
+
+void creareAVL(Arbore *BST, Arbore **AVL){
+    if(BST){
+        creareAVL(BST->right, AVL);
+        *AVL = insertAVL(*AVL, BST->val);
+        creareAVL(BST->left, AVL);
+    }
+}
+
+void afisareEchipePeNivel(FILE* fisier_out, Arbore* root, int level){
+    if(level == 1){
+        fprintf(fisier_out,"%s\n", root->val.Nume_echipa);
+    } 
+    else if(level > 1){
+        afisareEchipePeNivel(fisier_out, root->right, level-1);
+        afisareEchipePeNivel(fisier_out, root->left, level-1);
+    }
+}

@@ -33,19 +33,21 @@ int main(int arcg, char *argv[])
     Node *echipe_finaliste = NULL;
     if(Cerinta[2] == 1)
         Cerinta_3(fisier_out, head, &echipe_finaliste);
-    // Node* current = echipe_finaliste;
-    //     while (current != NULL) {
-    //         printf("%s\n", current->val.Nume_echipa);
-    //         current = current->next;
-    //     }
+
     Arbore *BST = NULL;
     if(Cerinta[3] == 1)
-        Cerinta_4(fisier_out, echipe_finaliste, BST);
+        Cerinta_4(fisier_out, echipe_finaliste, &BST);
     
+    Arbore *AVL = NULL;
+    if(Cerinta[4] == 1)
+        Cerinta_5(fisier_out, BST, &AVL);
+
     fclose(fisier_sarcini);
     fclose(fisier_in);
     fclose(fisier_out);
 
     eliberareLista(head);
+    free(BST);
+    free(AVL);
     return 0;
 }
