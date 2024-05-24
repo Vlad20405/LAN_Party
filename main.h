@@ -42,6 +42,7 @@ struct Arbore{
     struct Arbore *left, *right;
 };
 typedef struct Arbore Arbore;
+
 void eroare_la_deschidere();
 void eroare_la_alocare();
 
