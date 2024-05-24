@@ -10,4 +10,4 @@ Pentru a rula și verifica funcționalitatea programului, trebuie să descărca�
 ```
 
 ## Informații generale:
-* ceva
+* Pentru viitoarele persoane care doresc să îmbunătățească programul, se poate modifica orice în acesta, cu excepția fișierului checher.sh și a folderelor care conțin fișierele de date, out și rezultate;
