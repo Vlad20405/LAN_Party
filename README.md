@@ -10,4 +10,6 @@ Pentru a rula și verifica funcționalitatea programului, trebuie să descărca�
 ```
 
 ## Informații generale:
-* Pentru viitoarele persoane care doresc să îmbunătățească programul, se poate modifica orice în acesta, cu excepția fișierului checher.sh și a folderelor care conțin fișierele de date, out și rezultate;
+* Pentru viitoarele persoane care doresc să îmbunătățească programul, se poate modifica orice în acesta, cu excepția fișierului `checher.sh` și a folderelor care conțin fișierele de `date`, `out` și `rezultate`;
+* 
+* În fișierul `main.h` se regăsesc toate structurile necesare pentru rezolvarea cerințelor, dar și legăturile dintre funcțiile necesare acestora; 
