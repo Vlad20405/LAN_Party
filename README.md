@@ -27,3 +27,13 @@ Pentru a rula și verifica funcționalitatea programului, trebuie să descărca�
 * Pentru cazul în care două echipe au același scor, am eliminat pur și simplu prima echipă care mi-a ieșit în cale, conform cerinței.
 
 ### Cerința 3:
+* Pentru această cerință, am creat o coadă corespunzătoare meciurilor dintre echipe și am introdus câte două echipe în ea;
+* Ulterior, am scos echipele și am verificat care dintre cele două are punctajul mai mare. Astfel, le-am introdus în cele două stive create (câștigători și învinși) după caz și, în același timp, am actualizat punctajul echipei câștigătoare;
+* După finalizarea fiecărei etape, am șters stiva cu echipele învinse și am afișat echipele câștigătoare conform formatului cerut;
+* Ultimele 8 echipe au fost salvate într-o listă conform cerinței, iar mai apoi s-a continuat afișarea echipelor până la cea câștigătoare.
+
+### Cerința 4:
+* Pentru această sarcină, m-am folosit de lista creată la cerința anterioară și de funcția generică `insertBST()` pentru introducerea echipelor într-un arbore de tip BST;
+* De asemenea, am ținut cont și de cazurile în care două echipe pot avea același punctaj.
+
+### Cerința 5:
