@@ -33,7 +33,8 @@ Pentru a rula și verifica funcționalitatea programului, trebuie să descărca�
 * Ultimele 8 echipe au fost salvate într-o listă conform cerinței, iar mai apoi s-a continuat afișarea echipelor până la cea câștigătoare.
 
 ### Cerința 4:
-* Pentru această sarcină, m-am folosit de lista creată la cerința anterioară și de funcția generică `insertBST()` pentru introducerea echipelor într-un arbore de tip BST;
-* De asemenea, am ținut cont și de cazurile în care două echipe pot avea același punctaj.
+* Pentru această sarcină, m-am folosit de lista creată la cerința anterioară și de funcția generică `insertBST()` pentru introducerea echipelor într-un arbore de tip BST. De asemenea, am ținut cont și de cazurile în care două echipe pot avea același punctaj;
+* Afișarea am realizat-o cu ajutorul funcției recursive `afisareTop8Echipe()`, conform formatului cerut.
 
 ### Cerința 5:
+* La această ultimă cerință m-am folosit de arborele BST creat anterior și l-am transformat în AVL cu ajutorul funcțiilor `creareAVL()` și `insertAVL()`. După formarea arborelui de tip AVL, m-am folosit de funcția recursivă `afisareEchipePeNivel()` pentru a afișa echipele de pe nivelul 2 al arborelui.
