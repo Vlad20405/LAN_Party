@@ -10,7 +10,7 @@ Pentru a rula și verifica funcționalitatea programului, trebuie să descărca�
 ```
 
 ## Informații generale:
-* Pentru viitoarele persoane care doresc să îmbunătățească programul, se poate modifica orice în acesta, cu excepția fișierului `checher.sh` și a folderelor care conțin fișierele de `date`, `out` și `rezultate`;
+* Pentru viitoarele persoane care doresc să îmbunătățească programul, se poate modifica orice în acesta, cu excepția fișierului `checker.sh` și a folderelor care conțin fișierele de `date`, `out` și `rezultate`;
 * Fișierul `main.c` este cel principal, în care s-a realizat fiecare cerință din temă prin apeluri către funcțiile aferente;
 * În fișierul `main.h` se regăsesc toate structurile necesare pentru rezolvarea cerințelor, dar și legăturile dintre funcțiile necesare acestora;
 * Am creat fișiere `.c` separate pentru funcțiile generice, de exemplu pentru liste, cozi, stive, arbori;
