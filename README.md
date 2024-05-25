@@ -19,4 +19,4 @@ Pentru a rula și verifica funcționalitatea programului, trebuie să descărca�
 ## Rezolvarea cerințelor:
 
 ### Cerința 1:
-*
+* Am făcut citirea din fișiere în funcția `main()` care se află în fișierul `main.c`. Astfel, datele citite (nr. echipe, nr. persoane, nume echipe, nume și prenume persoane, și punctaje) au fost prelucrate și introduse într-o listă cu ajutorul funcției `addAtBeginning`. 
