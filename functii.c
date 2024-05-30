@@ -201,7 +201,6 @@ void meciuri(FILE* fisier_out, Node **head, Node **echipe_finaliste, int nr_echi
         fprintf(fisier_out, "%-33s -  %.2f\n", castigatori->val.Nume_echipa, castigatori->val.punctajTotal);
         castigatori = castigatori->next;
     }
-    deleteStack(&castigatori);
     free(q);
 }
 
